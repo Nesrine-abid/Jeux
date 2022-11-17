@@ -127,7 +127,7 @@ create table JEU_ARTISTE
 (
     ID_JEU             smallint REFERENCES JEUX (ID_JEU),
     ID_ARTISTE         smallint REFERENCES ARTISTES (ID_ARTISTE),
-	EST_ILLUSTRATEUR   BOOLEAN  NOTNULL,
+	EST_ILLUSTRATEUR   BOOLEAN  NOT NULL,
     primary KEY (ID_JEU,ID_ARTISTE)
 );
 -- ============================================================
@@ -148,7 +148,7 @@ create table JUGEMENTS
 	ID_EVALUATION     smallint  REFERENCES EVALUATIONS (ID_EVALUATION),
 	ID_JUGE           smallint REFERENCES JOUEURS (ID_JOUEUR),
 	primary KEY (ID_EVALUATION, ID_JUGE),
-    PERTINANCE        BOOLEAN   
+    PERTINANCE        BOOLEAN  not null 
 );  
 
 
