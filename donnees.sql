@@ -68,7 +68,7 @@ insert into THEMES values (  2 , 'Science-Fiction' ) ;
 insert into THEMES values (  3 , 'Fantasy' ) ;
 insert into THEMES values (  4 , 'Educatif' ) ;
 insert into THEMES values (  5 , 'Espionnage' ) ;
-insert into THEMES values (  6 , 'Medival' ) ;
+insert into THEMES values (  6 , 'Medieval' ) ;
 insert into THEMES values (  7 , 'Abstrait' ) ;
 insert into THEMES values (  8 , 'Historique' ) ;
 insert into THEMES values (  9 , 'Animaux' ) ;
