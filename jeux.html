@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Jeu de plateau</title>
+    </head>
+
+    <body>     
+        <button type="button" class="btn btn-success">Ajouter jeu</button>
+
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Thèmes</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                <option>Pirate</option>
+                <option>Science-Fiction</option>
+                <option>Fantasy</option>
+                <option>Educatif</option>
+                <option>Espionnage</option>
+                <option>Medieval</option>
+                <option>Abstrait</option>
+                <option>Historique</option>
+                <option>Animaux</option>
+                <option>Espace</option>
+                <option>Surnaturel</option>
+                <option>Jeu_a_license</option>    
+                </select>
+            </div>
+        </form>
+        
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id_jeu</th>
+                <th scope="col">editeur</th>
+                <th scope="col">date_parution</th>
+                <th scope="col">type</th>
+                <th scope="col">duree</th>
+                <th scope="col">nbr_joueurs_min</th>
+                <th scope="col">nbr_joueurs_max</th>
+                <th scope="col"></th>          
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button type="button" class="btn btn-primary">Modifier jeu</button>
+                    <button type="button" class="btn btn-danger">Supprimer jeu</button>
+                </td>
+              </tr>
+              
+          </table>
+    </body>
+</html>
