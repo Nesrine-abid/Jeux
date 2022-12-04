@@ -10,6 +10,7 @@ Class App
 	{
 
 		$url = $this->splitURL();
+		echo $url[0];
 
  		if(file_exists("../app/controllers/". strtolower($url[0]) .".php"))
  		{

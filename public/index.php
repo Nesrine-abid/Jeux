@@ -3,4 +3,9 @@ session_start();
 
 require "../app/init.php";
 
-$app = new App();
+if (!isset($_GET['action'])) {
+    $_GET['action'] = "index";
+}
+require('../app/controllers/Routeur.php');
+
+//$app = new App();
