@@ -11,13 +11,7 @@ require('header.php');
 
             <div class="form-group">
                 <label for="editeur">Editeur:</label>
-                <select class="form-control" id="themes">
-                    <option>AVENTURES_GAMES</option>
-                    <option>PSY_BOARDS</option>
-                    <option>CRAZYCARDS</option>
-                    <option>LORDS_&_&LABYRINTH</option>
-                    <option>CLASSICAL_COLLECTION</option>  
-                </select>
+                <input type="text" class="form-control">
             </div>
 
             <div class="form-group">
@@ -47,14 +41,12 @@ require('header.php');
 
             <div class="form-group">
                 <label for="">Thèmes utilisés:</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="defaultCheck1">Pirate</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="defaultCheck2">Fantasy</label>
-                </div>   
+                <?php foreach ($data['themes'] as $theme) { ?>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="defaultCheck1"><?php echo $theme->nom_theme;?></label>
+                    </div>
+                <?php } ?>
             </div>
 
             <div class="form-group">
@@ -83,37 +75,28 @@ require('header.php');
 
             <div class="form-group">
                 <label for="createur">Créteur du jeu</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="defaultCheck1">Robert MARTIN</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="defaultCheck2">Viviane LAMY</label>
-                </div>       
+                <?php foreach ($data['artistes'] as $artiste) { ?>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="defaultCheck1"><?php echo $artiste->nom_artiste;?>  <?php echo $artiste->prenom_artiste;?></label>
+                    </div>    
+                <?php } ?>  
             </div>
 
             <div class="form-group">
                 <label for="illustrateurs">Illustrateurs</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="defaultCheck1">Tatiana LEJEUNE</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="defaultCheck2">Jean LAPORTE</label>
-                </div>       
+                <?php foreach ($data['artistes'] as $artiste) { ?>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="defaultCheck1"><?php echo $artiste->nom_artiste;?>  <?php echo $artiste->prenom_artiste;?></label>
+                    </div>    
+                <?php } ?>  
             </div>
 
         <input type='hidden' name='action' value='FormProcess'>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary" style="margin-top:2em">Enregistrer</button>
         </form>
     </div>
     </div>
 </div>
-
-<select class="form-control" name="code_categorie">
-          <?php foreach ($categories as $c) { ?>
-            <option value="<?= $c->code ?>"><?php echo $c->nom; ?></option>
-          <?php } ?>
-</select> 

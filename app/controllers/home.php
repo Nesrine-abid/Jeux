@@ -28,16 +28,20 @@ class Home extends Controller
         $this->view("jeu", $data);
 	}
 
-    public function addJeux()
+    public function FormaddJeux()
 	{
-        $jeu = $this->loadModel("Jeux");
-        $jeux = $jeu->Add('nour','2022-01-01', 3, 'jeu de societe', 1, 4);
+        $theme = $this->loadModel("theme");
+        $themes = $theme->getAll();
+
+        $artiste = $this->loadModel("artiste");
+        $artistes = $artiste->getAll();
+
+        $data['themes'] = $themes;
+        $data['artistes'] = $artistes;
+
+        $this->view("ajout_jeu", $data);
 	}
 
-    public function save()
-	{
-        $this->view("ajout_jeu");
-	}
 /*-----------------------------------------------------------------------------*/
     public function getAllJoueurs()
 	{

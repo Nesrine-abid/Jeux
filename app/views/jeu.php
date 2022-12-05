@@ -19,7 +19,7 @@ require('header.php');
 
       <div class="col-2">
         <form action='index.php' method='GET'>
-						<input type="hidden" name="action" value="save" />
+						<input type="hidden" name="action" value="FormaddJeux" />
 						<button type="submit" class="btn btn-success" style="margin:2em">Ajouter Jeu</button>
 				</form>
       </div>

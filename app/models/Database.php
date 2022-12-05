@@ -7,7 +7,6 @@ class Database
 	public function __construct($database = 'JEUX', $user = 'postgres', $pass = 'nesrine123')
 	{
 		$dsn = "pgsql:host=localhost; port=5432;  dbname=" . $database;
-        //$dsn = pg_connect("host=localhost port=5432 dbname=JEUX user=postgres password=nesrine123");
 		if (is_null(self::$pdo)) {
 			try {
 				self::$pdo = new PDO($dsn, $user, $pass);
