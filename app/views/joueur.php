@@ -37,8 +37,14 @@ require('header.php');
                     <td><?php echo $joueur->prenom_joueur;?></td>
                     <td><?php echo $joueur->nom_joueur;?></td>
                     <td><?php echo $joueur->adresse_mail;?></td>
-                    <td><button type="button" class="btn btn-primary">Modifier joueur</button></td>
-                    <td><button type="button" class="btn btn-danger">Supprimer joueur</button></td>
+                    <td><button type="button" class="btn btn-primary">Modifier</button></td>
+                    <td>
+                        <form action='index.php' method='GET'>
+						    <input type="hidden" name="id_joueur" value="<?= $joueur->id_joueur; ?>" />
+							<input type="hidden" name="action" value="DeleteJoueurs" />
+					      <button type="submit" class="btn btn-danger">Supprimer</button>
+					    </form>                    
+                    </td>
                 </tr>
                 <?php } ?>                 
           </table>
