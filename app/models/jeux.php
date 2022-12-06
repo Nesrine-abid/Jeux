@@ -1,3 +1,4 @@
+
 <?php
 require_once('Database.php');
 
@@ -51,4 +52,26 @@ class Jeux
         $query = "update jeux set editeur = :editeur, date_parution = :date_parution,type = :type, duree = :duree, nbr_joueurs_min = :nbr_joueurs_min, nbr_joueurs_max = :nbr_joueurs_max WHERE id_jeu = :id_jeu";
         $db->write($query, $data);
     }
+
+//cette méthode renvoie les extensions du jeu ayant id = $id
+    public function getExtensions($id)
+    {
+        $data = array();
+        $db = new Database();
+        $data['id'] = $id;
+
+        $query = "select id_extension, jeux.* from extensions, jeux where id_base= :id and id_extension=id_jeu;";
+        $db->write($query, $data);
+    }
+//recuperer les jeu étendu par x
+    public function ExtendedBy($id)
+    {
+        $data = array();
+        $db = new Database();
+        $data['id'] = $id;
+
+        $query = "select id_base, jeux.* from extensions, jeux where id_extension= :id and id_base=id_jeu;";
+        $db->write($query, $data);
+    }
+    
 }

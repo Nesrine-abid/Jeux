@@ -11,32 +11,32 @@ require('header.php');
 
             <div class="form-group">
                 <label for="editeur">Editeur:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="editeur">
             </div>
 
             <div class="form-group">
                 <label for="">Date de parution:</label>
-                <input type="date" class="form-control" id="date_parution" placeholder="jj/mm/aaaa">
+                <input type="date" class="form-control" id="date_parution" placeholder="jj/mm/aaaa" name="date-parution">
             </div>
 
             <div class="form-group">
                 <label for="type">Type:</label>
-                <input type="text" class="form-control" id="type" placeholder="type">
+                <input type="text" class="form-control" id="type" placeholder="type" name="type">
             </div>
 
             <div class="form-group">
                 <label for="">Durée:</label>
-                <input type="number" class="form-control" id="duree">     
+                <input type="number" class="form-control" id="duree" name="duree">     
             </div>
 
             <div class="form-group">
                 <label for="">Nombre minimum de joueurs:</label>
-                <input type="number" class="form-control" id="Nombre minimum de joueurs">     
+                <input type="number" class="form-control" id="nbr_joueurs_min" name="nbr_joueurs_min">     
             </div>
 
             <div class="form-group">
                 <label for="">Nombre maximum de joueurs:</label>
-                <input type="number" class="form-control" id="duree">     
+                <input type="number" class="form-control" id="nbr_joueurs_max" name="nbr_joueurs_max">     
             </div>
 
             <div class="form-group">
@@ -50,33 +50,32 @@ require('header.php');
             </div>
 
             <div class="form-group">
-                <label for="extensions">Si le jeu est une extension d'un ou de plusieurs autre(s) jeu(x), desquels s'agit-il ?</label>
+                <div> <label for="extensions">Si le jeu est une extension d'un ou de plusieurs autre(s) jeu(x), desquels s'agit-il ?</label></div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="defaultCheck1">1</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="defaultCheck2">2</label>
-                </div>     
+                <?php foreach ($data['jeux'] as $id) { ?>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="defaultCheck1"><?php echo $id->id_jeu;?></label>
+                    </div>
+                <?php } ?>
             </div>
 
             <div class="form-group">
-                <label for="extensions2">Si le jeu possède des extensions, lesquelles sont-elles ?</label>
+                <div><label for="extensions2">Si le jeu possède des extensions, lesquelles sont-elles ?</label></div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="defaultCheck1">1</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="">
-                    <label class="form-check-label" for="defaultCheck2">2</label>
-                </div>       
+                <?php foreach ($data['jeux'] as $id) { ?>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <label class="form-check-label" for="defaultCheck1"><?php echo $id->id_jeu;?></label>
+                    </div>
+                <?php } ?>     
             </div>
 
             <div class="form-group">
-                <label for="createur">Créteur du jeu</label>
+                <div><label for="createur">Créteur du jeu</label></div>
+                <div class="form-check">
                 <?php foreach ($data['artistes'] as $artiste) { ?>
-                    <div class="form-check">
+                    <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" value="" id="">
                         <label class="form-check-label" for="defaultCheck1"><?php echo $artiste->nom_artiste;?>  <?php echo $artiste->prenom_artiste;?></label>
                     </div>    
@@ -87,14 +86,14 @@ require('header.php');
                 <label for="illustrateurs">Illustrateurs</label>
                 <div class="form-check">
                 <?php foreach ($data['artistes'] as $artiste) { ?>
-                    <div class="form-check">
+                    <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" value="" id="">
                         <label class="form-check-label" for="defaultCheck1"><?php echo $artiste->nom_artiste;?>  <?php echo $artiste->prenom_artiste;?></label>
                     </div>    
                 <?php } ?>  
             </div>
 
-        <input type='hidden' name='action' value='FormProcess'>
+        <input type='hidden' name='action' value='AddJeux'>
         <button type="submit" class="btn btn-primary" style="margin-top:2em">Enregistrer</button>
         </form>
     </div>
