@@ -21,7 +21,8 @@ class Evaluation
         $data['commentaire'] = $commentaire;
         $data['nbr_joueurs'] = $nbr_joueurs;
 
-        $query = "insert into evaluations (id_joueur,id_jeu,note,commentaire,nbr_joueurs,date_evaluation) values (:id_joueur,:id_jeu,:note,:commentaire,:nbr_joueurs,Sysdate()";
+        $query = "insert into evaluations (id_joueur,id_jeu,note,commentaire,nbr_joueurs,date_evaluation) 
+        values (:id_joueur,:id_jeu,:note,:commentaire,:nbr_joueurs,Sysdate()";
         $db->write($query, $data);
     }
 
@@ -36,7 +37,9 @@ class Evaluation
         $data['commentaire'] = $commentaire;
         $data['nbr_joueurs'] = $nbr_joueurs;
 
-        $query = "update evaluations set id_joueur = :id_joueur,id_jeu = :id_jeu,note = :note,commentaire = :commentaire,nbr_joueurs = :nbr_joueurs,WHERE id_evaluation = :id_evaluation";
+        $query = "update evaluations 
+        set id_joueur = :id_joueur,id_jeu = :id_jeu,note = :note,commentaire = :commentaire,nbr_joueurs = :nbr_joueurs,
+        WHERE id_evaluation = :id_evaluation";
         $db->write($query, $data);
     }
 
@@ -49,4 +52,28 @@ class Evaluation
         $query = "delete from evaluations where id_evaluation = :id_evaluation";
         $db->write($query, $data);
     }
+
+// la liste des n commentaires les plus recents 
+    public function CommentairePlusRecents($n)
+    {
+        $db = new Database();
+        $query = "select * from evaluations order by date_evaluation  desc limit '$n';";
+        $resultat = $db->read($query);
+        return $resultat;
+    }
+
+//le commentaire qui laisse le moins indifferent (celui qui a recu le plus de jugements) 
+public function MoinIndifferent()
+{
+    $db = new Database();
+    $query = "select jugements.* , count(id_juge) as nbr_jugements
+    from evaluations
+    left outer join jugements on (evaluations.id_evaluation = jugements.id_evaluation)
+    group by jugements.id_evaluation ,jugements.id_juge 
+    order by nbr_jugements  desc
+    limit 1;";
+    $resultat = $db->read($query);
+    return $resultat;
+}
+
 }

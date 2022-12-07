@@ -131,4 +131,30 @@ class Home extends Controller
 
         $this->view("joueur", $data);
 	}
+
+    public function joueurOrderByCommentaire()
+	{
+        $joueur = $this->loadModel("joueur");
+        $joueurs = $joueur->joueurOrderByCommentaire();
+        $data['joueurs'] = $joueurs;
+        $this->view("stat1", $data);
+	}
+
+/*-----------------------------------------------------------------------------*/
+public function CommentairePlusRecents()
+{
+    $n = $_GET['n'];
+    $evaluation = $this->loadModel("evaluation");
+    $evaluations = $evaluation->CommentairePlusRecents($n);
+    $data['evaluations'] = $evaluations;
+    $this->view("stat2", $data);
+}
+
+public function MoinIndifferent()
+{
+    $evaluation = $this->loadModel("evaluation");
+    $evaluations = $evaluation->MoinIndifferent();
+    $data['evaluations'] = $evaluations;
+    $this->view("stat3", $data);
+}
 }
