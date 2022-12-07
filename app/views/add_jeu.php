@@ -16,7 +16,7 @@ require('header.php');
 
             <div class="form-group">
                 <label for="">Date de parution:</label>
-                <input type="date" class="form-control" id="date_parution" placeholder="jj/mm/aaaa" name="date-parution">
+                <input type="date" class="form-control" id="date_parution" placeholder="jj/mm/aaaa" name="date_parution">
             </div>
 
             <div class="form-group">

@@ -12,6 +12,12 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                <li class="nav-item">
+                        <form action='index.php' method='GET'>
+                            <input type="hidden" name="action" value="index" />
+                            <button class="btn btn-link">Home</button>
+                        </form>
+                    </li>
                     <li class="nav-item">
                         <form action='index.php' method='GET'>
                             <input type="hidden" name="action" value="getAllJeux" />

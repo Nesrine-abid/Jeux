@@ -6,7 +6,7 @@ class Joueur
     public function getAll()
     {
         $db = new Database();
-        $sql = "SELECT * from joueurs where existant = true";
+        $sql = "SELECT * from joueurs where existant = TRUE";
         $resultat = $db->read($sql);
         return $resultat;
     }
@@ -29,12 +29,11 @@ class Joueur
         $data['prenom_joueur'] = $prenom_joueur;
         $data['pseudo'] = $pseudo;
         $data['adresse_mail'] = $adresse_mail;
-
-        $query = "insert into joueurs (nom_joueur,prenom_joueur,pseudo,adresse_mail) values (:nom_joueur,:prenom_joueur,:pseudo,:adresse_mail)";
+        $query = "insert into joueurs (nom_joueur,prenom_joueur,pseudo,adresse_mail,existant) values (:nom_joueur,:prenom_joueur,:pseudo,:adresse_mail,true)";
         $db->write($query, $data);
     }
 
-    public function update($id_joueur, $nom_joueur, $prenom_joueur, $pseudo, $adresse_mail$nbr_joueurs_max)
+    public function update($id_joueur, $nom_joueur, $prenom_joueur, $pseudo, $adresse_mail,$nbr_joueurs_max)
     {
         $data = array();
         $db = new Database();

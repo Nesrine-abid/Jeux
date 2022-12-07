@@ -3,17 +3,6 @@ require('header.php');
 ?>
 <section id="jeu">
   <div class="container" style="margin: 1em;">
-    <div class="row">
-      <div class="col-10"></div>
-
-      <div class="col-sm-2">
-        <form action='index.php' method='GET'>
-						<input type="hidden" name="action" value="FormAddJeux" />
-						<button type="submit" class="btn btn-success" style="margin:2em">Ajouter Jeu</button>
-				</form>
-      </div>
-    </div>
-
     <div class="row"  style="margin-top:2em">
       <div class="col-3">
         <div class="card">
@@ -43,8 +32,7 @@ require('header.php');
                 <th scope="col">duree</th>
                 <th scope="col">nbr_joueurs_min</th>
                 <th scope="col">nbr_joueurs_max</th>
-                <th scope="col"></th>   
-                <th scope="col"></th>                 
+                <th scope="col">id_Mécanique</th>   
               </tr>
             </thead>
             <tbody>
@@ -57,14 +45,7 @@ require('header.php');
                     <td><?php echo $jeu->duree;?></td>
                     <td><?php echo $jeu->nbr_joueurs_min;?></td>
                     <td><?php echo $jeu->nbr_joueurs_max;?></td>
-                    <td><button type="button" class="btn btn-primary">Modifier</button></td>
-                    <td>
-                      <form action='index.php' method='GET'>
-                        <input type="hidden" name="id_jeu" value="<?= $jeu->id_jeu ?>" />
-                        <input type="hidden" name="action" value="DeleteJeux" />
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                      </form>
-                    </td>
+                    <td><?php echo $jeu->id_mecanique;?></td>
                   </tr>
               <?php } ?>
             </tbody>

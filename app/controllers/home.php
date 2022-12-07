@@ -5,7 +5,7 @@ class Home extends Controller
 {
     public function index()
     {
-        $this->view("header");
+        $this->view("home");
     }
 
     public function getAllJeux()
@@ -13,6 +13,10 @@ class Home extends Controller
         $jeu = $this->loadModel("Jeux");
         $jeux = $jeu->getAll();
         $data['jeux'] = $jeux;
+
+        $theme = $this->loadModel("theme");
+        $themes = $theme->getAll();
+        $data['themes'] = $themes;
 
         $this->view("jeu", $data);
 	}
@@ -43,12 +47,18 @@ class Home extends Controller
         $data['themes'] = $themes;
         $data['artistes'] = $artistes;
 
-        $this->view("ajout_jeu", $data);
+        $this->view("add_jeu", $data);
 	}
 
     public function AddJeux()
 	{
-        $editeur = $_GET['id_jeu'];
+        $editeur = $_GET['editeur'];
+        $date_parution = $_GET['date_parution'];
+        $type = $_GET['type'];
+        $duree = $_GET['duree'];
+        $nbr_joueurs_min = $_GET['nbr_joueurs_min'];
+        $nbr_joueurs_max = $_GET['nbr_joueurs_max'];
+
         $jeu = $this->loadModel("Jeux");
         $jeux = $jeu->Add($editeur, $date_parution, $duree, $type, $nbr_joueurs_min, $nbr_joueurs_max);
         $jeux = $jeu->getAll();
@@ -56,6 +66,21 @@ class Home extends Controller
 
         $this->view("jeu", $data);
 	}
+
+    public function getJeuPerTheme()
+    {
+        $nom_theme = $_GET['nom_theme'];
+        $jeu = $this->loadModel("Jeux");
+        $jeux = $jeu->JeuPerTheme($nom_theme);
+        $data['jeux'] = $jeux;
+
+        $theme = $this->loadModel("theme");
+        $themes = $theme->getAll();
+        $data['themes'] = $themes;
+
+        $this->view("jeu_theme", $data);
+    }
+
 
 /*-----------------------------------------------------------------------------*/
     public function getAllJoueurs()
@@ -72,6 +97,35 @@ class Home extends Controller
         $id = $_GET['id_joueur'];
         $joueur = $this->loadModel("joueur");
         $joueurs = $joueur->Delete($id);
+        $joueurs = $joueur->getAll();
+        $data['joueurs'] = $joueurs;
+
+        $this->view("joueur", $data);
+	}
+
+    public function FormAddJoueur()
+	{
+        $theme = $this->loadModel("theme");
+        $themes = $theme->getAll();
+
+        $mecanique = $this->loadModel("mecanique");
+        $mecaniques = $mecanique->getAll();
+
+        $data['themes'] = $themes;
+        $data['mecaniques'] = $mecaniques;
+
+        $this->view("add_joueur", $data);
+	}
+
+    public function AddJoueur()
+	{
+        $nom_joueur = $_GET['nom_joueur'];
+        $prenom_joueur = $_GET['prenom_joueur'];
+        $pseudo = $_GET['pseudo'];
+        $adresse_mail = $_GET['adresse_mail'];
+
+        $joueur = $this->loadModel("joueur");
+        $joueurs = $joueur->Add($nom_joueur, $prenom_joueur, $pseudo, $adresse_mail);
         $joueurs = $joueur->getAll();
         $data['joueurs'] = $joueurs;
 
