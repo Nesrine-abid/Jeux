@@ -141,6 +141,14 @@ class Home extends Controller
 	}
 
 /*-----------------------------------------------------------------------------*/
+
+public function getAllEvaluations()
+{
+    $evaluation = $this->loadModel("evaluation");
+    $evaluations = $evaluation->getAll();
+    $data['evaluations'] = $evaluations;
+    $this->view("evaluation", $data);
+}
 public function CommentairePlusRecents()
 {
     $n = $_GET['n'];
@@ -156,5 +164,14 @@ public function MoinIndifferent()
     $evaluations = $evaluation->MoinIndifferent();
     $data['evaluations'] = $evaluations;
     $this->view("stat3", $data);
+}
+
+public function JoueursQuiAppercie()
+{
+    $id_evaluation = $_GET['id_evaluation'];
+    $joueur = $this->loadModel("evaluation");
+    $joueurs = $joueur->JoueursQuiAppercie($id_evaluation);
+    $data['joueurs'] = $joueurs;
+    $this->view("appercie", $data);
 }
 }

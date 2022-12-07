@@ -4,17 +4,13 @@ require('header.php');
 <section id="joueur">
     <div class="container">
         <div class="row">
-        <div class="col-2">
-            <form action='index.php' method='GET'>
-				<input type="hidden" name="action" value="FormAddJoueur" />
-				<button type="submit" class="btn btn-success" style="margin:2em">Ajouter Joueur</button>
-			</form>        
-        </div>
-        <div class="col-8"></div>
-
-        <div class="col-2">
-            <button type="button" class="btn btn-warning" style="margin:2em">Joueurs les plus actifs</button>
-        </div>
+            <div class="col-8"></div>
+            <div class="col-2">
+                <form action='index.php' method='GET'>
+                    <input type="hidden" name="action" value="FormAddJoueur" />
+                    <button type="submit" class="btn btn-success" style="margin:2em">Ajouter Joueur</button>
+                </form>        
+            </div>
         </div>
     </div>
 

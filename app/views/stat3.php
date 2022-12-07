@@ -8,8 +8,12 @@ require('header.php');
             <thead>
                 <tr>
                     <th scope="col">id evaluation</th>
-                    <th scope="col">id juge</th>
-                    <th scope="col">est pertinent</th>
+                    <th scope="col">id joueur</th>
+                    <th scope="col">id jeu</th>
+                    <th scope="col">note</th>
+                    <th scope="col">commentaire</th>
+                    <th scope="col">nombre de joueurs</th>
+                    <th scope="col">date d'evaluation</th>
                     <th scope="col">nombre de jugements</th>
                 </tr>
             </thead>
@@ -17,9 +21,14 @@ require('header.php');
                 <?php foreach ($data['evaluations'] as $evaluation) { ?>
                     <tr>
                         <td><?php echo $evaluation->id_evaluation;?></td>
-                        <td><?php echo $evaluation->id_juge;?></td>
-                        <td><?php echo $evaluation->est_pertinent;?></td>
+                        <td><?php echo $evaluation->id_joueur;?></td>
+                        <td><?php echo $evaluation->id_jeu;?></td>
+                        <td><?php echo $evaluation->note;?></td>
+                        <td><?php echo $evaluation->commentaire;?></td>
+                        <td><?php echo $evaluation->nbr_joueurs;?></td>
+                        <td><?php echo $evaluation->date_evaluation;?></td>
                         <td><?php echo $evaluation->nbr_jugements;?></td>
+
                     </tr>
                 <?php } ?>
             </tbody>

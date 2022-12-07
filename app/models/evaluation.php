@@ -66,14 +66,26 @@ class Evaluation
 public function MoinIndifferent()
 {
     $db = new Database();
-    $query = "select jugements.* , count(id_juge) as nbr_jugements
+    $query = "select evaluations.* , count(id_juge) as nbr_jugements
     from evaluations
     left outer join jugements on (evaluations.id_evaluation = jugements.id_evaluation)
-    group by jugements.id_evaluation ,jugements.id_juge 
+    group by evaluations.id_evaluation
     order by nbr_jugements  desc
     limit 1;";
     $resultat = $db->read($query);
     return $resultat;
 }
 
+//pour un commentaire (id_evaluation = X), la liste des joueurs qui l'ont apprecie.
+public function JoueursQuiAppercie($id_evaluation)
+{
+    $db = new Database();
+    $query = "select joueurs.* 
+    from jugements
+    inner join joueurs on (jugements.id_juge=joueurs.id_joueur)
+    where jugements.est_pertinent
+    and joueurs.existant and jugements.id_evaluation = '$id_evaluation';";
+    $resultat = $db->read($query);
+    return $resultat;
+}
 }

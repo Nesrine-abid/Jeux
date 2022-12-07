@@ -31,8 +31,10 @@
                         </form>                    
                     </li>
                     <li class="nav-item">
-                        <input type="hidden" name="action" value="getAllJeux" />
-                        <button class="btn btn-link">Thème</button>                    
+                        <form action='index.php' method='GET'>
+                            <input type="hidden" name="action" value="getAllEvaluations" />
+                            <button class="btn btn-link">Evaluation</button>
+                        </form>                      
                     </li>
                 </ul>
         </div>
