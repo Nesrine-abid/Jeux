@@ -7,10 +7,7 @@ require('header.php');
       <div class="col-10"></div>
 
       <div class="col-sm-2">
-        <form action='index.php' method='GET'>
-			<input type="hidden" name="action" value="" />
-			<button type="submit" class="btn btn-success" style="margin:2em">Ajouter Evaluation</button>
-		</form>
+			  <button type="submit" class="btn btn-success" style="margin:2em">Ajouter Evaluation</button>
       </div>
     </div>
 

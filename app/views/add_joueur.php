@@ -4,7 +4,7 @@ require('header.php');
 <div class="container">
     <div class="card" style="margin:2em">
     <div class="card-header bg-dark text-white" style="margin:2px">
-        Ajout Jeux
+        Ajout Joueur
     </div>
     <div class="card-body">
         <form action="index.php" method=GET>
